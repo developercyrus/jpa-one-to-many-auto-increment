@@ -1,0 +1,27 @@
+IF OBJECT_ID('dbo.LEVEL1', 'U') IS NOT NULL DROP TABLE dbo.LEVEL1; 
+IF OBJECT_ID('dbo.LEVEL2', 'U') IS NOT NULL DROP TABLE dbo.LEVEL2; 
+IF OBJECT_ID('dbo.LEVEL3', 'U') IS NOT NULL DROP TABLE dbo.LEVEL3; 
+
+
+CREATE TABLE [dbo].[LEVEL1](
+    [PK] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,   
+    [NAME] nvarchar (100) NULL,
+    [CREATE_TIME] [datetime] NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[LEVEL2](
+    [PK] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,    
+    [LEVEL1_PK] [int] NULL,   
+    [NAME] nvarchar (100) NULL,    
+    [CREATE_TIME] [datetime] NULL
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[LEVEL3](
+    [PK] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    [LEVEL2_PK] [int] NULL,    
+    [NAME] nvarchar (100) NULL, 
+    [CREATE_TIME] [datetime] NULL
+) ON [PRIMARY]
+
+
